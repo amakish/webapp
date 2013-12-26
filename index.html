@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/main.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+		<script src="js/nhl-stats-app/app.js"></script>
+		<script src="js/nhl-stats-app/controllers/MainCtrl.js"></script>		
+	</head>
+	<body>
+		<div class="header">
+			<div class="container">
+				<h1>NHL Stats Example</h1>
+			</div>
+		</div>
+		<div class="body container" ng-app="nhlStatsApp">
+			<table class="stats" ng-controller="PlayersCtrl">
+				<thead>
+					<tr>
+						<th class="t-lrg left" ng-click="changeSorting('name')">Name</th>
+						<th class="t-med" ng-click="changeSorting('team')">Team</th>
+						<th class="t-med" ng-click="changeSorting('pos')">Pos</th>
+						<th class="t-sm" ng-click="changeSorting('gp')">GP</th>
+						<th class="t-sm" ng-click="changeSorting('g')">G</th>
+						<th class="t-sm" ng-click="changeSorting('a')">A</th>
+						<th class="t-sm" ng-click="changeSorting('pts')">Pts</th>
+						<th class="t-sm" ng-click="changeSorting('plusminus')">+/-</th>
+						<th class="t-sm" ng-click="changeSorting('pim')">PIM</th>
+						<th class="t-sm" ng-click="changeSorting('ppg')">PPG</th>
+						<th class="t-sm" ng-click="changeSorting('shg')">SHG</th>
+						<th class="t-sm" ng-click="changeSorting('gwg')">GWG</th>
+						<th class="t-sm" ng-click="changeSorting('sog')">SOG</th>
+						<th class="t-sm" ng-click="changeSorting('shtpct')">Sht %</th>
+						<th class="t-sm" ng-click="changeSorting('toiperg')">TOI/G</th>
+						<th class="t-sm" ng-click="changeSorting('shftperg')">Shft/G</th>
+						<th class="t-sm" ng-click="changeSorting('fopct')">FO %</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="player in players.data | orderBy:sort.column:sort.descending">
+						<td class="left">{{player.name}}</td>
+						<td>{{player.team}}</td>
+						<td>{{player.pos}}</td>
+						<td>{{player.gp}}</td>
+						<td>{{player.g}}</td>
+						<td>{{player.a}}</td>
+						<td>{{player.pts}}</td>
+						<td>{{player.plusminus}}</td>
+						<td>{{player.pim}}</td>
+						<td>{{player.ppg}}</td>
+						<td>{{player.shg}}</td>
+						<td>{{player.gwg}}</td>
+						<td>{{player.sog}}</td>
+						<td>{{player.shtpct}}</td>
+						<td>{{player.toiperg}}</td>
+						<td>{{player.shftperg}}</td>
+						<td>{{player.fopct}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</body>
+</html>
